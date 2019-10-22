@@ -160,7 +160,7 @@ class DoubanDiscussionSpider(DoubanSpider):
 
         # 豆瓣小组讨论列表URL模板
         self.url_tpl = 'https://www.douban.com/group/{group_name}/discussion?start={start}&limit={limit}'.format(group_name = self.group_name,start = '{start}', limit = '{limit}')
-        self.index = 1508
+        self.index = 742
 
     def get_discussion_list(self, file_title, file_detail, start=0, limit=100, filter = []):
         '''
@@ -289,8 +289,8 @@ def sample():
     # 排除词
     exclude = [x.strip() for x in config.get('content','exclude').split(',')]
 
-    file_title = open('group/title.txt','a')
-    file_detail = open('group/detail.txt','a')
+    file_title = open('group/title2.txt','a')
+    file_detail = open('group/detail2.txt','a')
 
     # 创建爬虫spider对象
     spider = DoubanDiscussionSpider(user_name, password, group_name)    

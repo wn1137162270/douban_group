@@ -260,7 +260,7 @@ class DoubanDiscussionSpider(DoubanSpider):
         :param topics: topic列表
         :return: None
         '''
-        env = Environment(loader = FileSystemLoader('group/'))
+        env = Environment(loader = FileSystemLoader('template/'))
         tpl = env.get_template('topics_tpl.html')
         with open('douban-NJU-topics-{0}.html'.format(datetime.datetime.now().strftime('%Y-%m-%d')),'w+') as fout:
             render_content = tpl.render(topics = topics)

@@ -160,7 +160,7 @@ class DoubanDiscussionSpider(DoubanSpider):
 
         # 豆瓣小组讨论列表URL模板
         self.url_tpl = 'https://www.douban.com/group/{group_name}/discussion?start={start}&limit={limit}'.format(group_name = self.group_name,start = '{start}', limit = '{limit}')
-        self.index = 742
+        self.index = 0
 
     def get_discussion_list(self, file_title, file_detail, start=0, limit=100, filter = []):
         '''
@@ -212,8 +212,8 @@ class DoubanDiscussionSpider(DoubanSpider):
             topics.append(topic_dict)
 
             self.index += 1
-            file_title.write(str(self.index) + ' ' + topic_dict['title'] + '\n')
-            file_detail.write(str(self.index) + ' ' + topic_dict['detail'] + '\n')
+            # file_title.write(str(self.index) + ' ' + topic_dict['title'] + '\n')
+            # file_detail.write(str(self.index) + ' ' + topic_dict['detail'] + '\n')
             print str(self.index) + ' [get_discussion_list] parse topic: {0} finished'.format(link)
 
 
@@ -300,7 +300,7 @@ def sample():
     file_detail.close()
 
     # 将topics列表内容渲染到HTML表格中
-    # spider.render_topics(topics)
+    spider.render_topics(topics)
 
 if __name__ == '__main__':
     try:
